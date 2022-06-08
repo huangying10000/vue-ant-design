@@ -1,27 +1,19 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
+  <a-config-provider :locale="zhCN">
+    <Table />
+  </a-config-provider>
 </template>
 
 <script lang="ts">
-import { Options, Vue } from "vue-class-component";
-import HelloWorld from "./components/HelloWorld.vue";
-
-@Options({
-  components: {
-    HelloWorld,
+import { defineComponent } from "vue";
+import zhCN from "ant-design-vue/lib/locale-provider/zh_CN";
+import Table from "./components/Table/index.vue";
+export default defineComponent({
+  components: { Table },
+  data() {
+    return {
+      zhCN,
+    };
   },
-})
-export default class App extends Vue {}
+});
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
